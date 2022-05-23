@@ -1,7 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/Group/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Group/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/apigw/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/apigw/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/dictionary/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/dictionary/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/eureka-server/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/eureka-server/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/grammar/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/grammar/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/group/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/group/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/sentence/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/sentence/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/word/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/word/src/main/resources" charset="UTF-8" />
   </component>
 </project>
