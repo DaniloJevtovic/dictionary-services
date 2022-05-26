@@ -47,9 +47,9 @@ public class GroupController {
         groupService.decreaseNumOfItems(id);
     }
 
-    @DeleteMapping("/{id}")
-    public void deleteGroup(@PathVariable Integer id) {
-        groupService.deleteGroup(id);
+    @DeleteMapping("/{id}/type/{type}")
+    public void deleteGroup(@PathVariable Integer id, @PathVariable String type) {
+        groupService.deleteGroup(id, type);
     }
 
     @DeleteMapping("/dic/{dicId}")
