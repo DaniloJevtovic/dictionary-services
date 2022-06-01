@@ -1,6 +1,8 @@
 package com.dictionary.dictionary;
 
+import com.dictionary.clients.grammar.GrammarClient;
 import com.dictionary.clients.group.GroupClient;
+import com.dictionary.clients.sentence.SentenceClient;
 import com.dictionary.clients.word.WordClient;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -15,9 +17,11 @@ import java.util.List;
 public class DictionaryService {
 
     private final DictionaryRepository dictionaryRepository;
-    private final ModelMapper modelMapper;
-    private final WordClient wordClient;
+    //    private final ModelMapper modelMapper;
     private final GroupClient groupClient;
+    private final WordClient wordClient;
+    private final SentenceClient sentenceClient;
+    private final GrammarClient grammarClient;
 
     public List<Dictionary> getAllDictionaries() {
         return dictionaryRepository.findAll();
@@ -52,11 +56,20 @@ public class DictionaryService {
 
     public void deleteDictionary(Integer id) {
         //brisanje svih grupa -> brisanje svih rjeci, recenica i gramatike
-        Long brRjeci = wordClient.deleteAllWordsForDic(id);
-        log.info("Obrisano ukupno {} rjeci", brRjeci);
 
         Long brGrupa = groupClient.deleteAllGroupsForDic(id);
         log.info("Obrisao ukupno {} grupa", brGrupa);
+
+        //moras pozivati brisanje za rjecnik jer moguce da rjec/recenica ne bude rasporedjena u grupi
+
+        Long brRjeci = wordClient.deleteAllWordsForDic(id);
+        log.info("Obrisano ukupno {} rjeci", brRjeci);
+
+        Long brRecenica = sentenceClient.deleteAllSentencesForDic(id);
+        log.info("Obrisano ukupno {} recenica", brRecenica);
+
+        Long brGramatika = grammarClient.deleteAllGrammarsForDic(id);
+        log.info("Obrisano ukupno {} gramatika", brGramatika);
 
         dictionaryRepository.deleteById(id);
     }
