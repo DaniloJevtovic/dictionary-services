@@ -5,6 +5,7 @@ spring:
   application:
     name: word
   datasource:
+    #lokalno
     url: jdbc:postgresql://localhost:5432/word
     username: lemur
     password: toor

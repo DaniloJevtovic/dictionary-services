@@ -46,6 +46,10 @@ public class WordService {
         //poziv ms za povecanja broja rjeci u grupi - obracanje clien-tu
         groupClient.increaseNumOfItems(wordDTO.wgId());
 
+        // ideja recimo kad se doda nova rjec da postoji ms za pretragu (neki mongodb) i da se ta nova
+        // rijec ubaci u tu bazu (kljuc vrijednost - rijec-prevod bez opisa i ostaloga)
+        // negi globalni search
+
         return wordRepository.save(word);
     }
 
