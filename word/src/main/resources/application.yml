@@ -24,3 +24,14 @@ eureka:
       defaultZone: http://localhost:8761/eureka
     fetch-registry: true
     register-with-eureka: true
+
+rabbitmq:
+  exchanges:
+    delete-wg: delete.wg
+    delete-dic-all: delete.dic.all
+  queues:
+    wg-queue: delete-wg.queue
+    dic-queue-all: delete-dic-all.queue
+  routing-keys:
+    wg-key: del-wg.routing-key
+    dic-key-all: del-dic.routing-key
