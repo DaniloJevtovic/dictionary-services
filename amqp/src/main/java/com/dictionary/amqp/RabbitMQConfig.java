@@ -1,4 +1,4 @@
-package com.lemur.amqp;
+package com.dictionary.amqp;
 
 import lombok.AllArgsConstructor;
 import org.springframework.amqp.core.AmqpTemplate;

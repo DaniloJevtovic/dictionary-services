@@ -28,6 +28,13 @@
 
         <dependency>
             <groupId>com.dictionary</groupId>
+            <artifactId>amqp</artifactId>
+            <version>1.0-SNAPSHOT</version>
+            <scope>compile</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>com.dictionary</groupId>
             <artifactId>clients</artifactId>
             <version>1.0-SNAPSHOT</version>
             <scope>compile</scope>

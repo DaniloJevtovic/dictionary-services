@@ -1,4 +1,4 @@
-package com.lemur.amqp;
+package com.dictionary.amqp;
 
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
