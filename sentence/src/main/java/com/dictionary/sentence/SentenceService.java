@@ -41,8 +41,6 @@ public class SentenceService {
                 .dicId(sentenceDTO.dicId())
                 .build();
 
-        groupClient.increaseNumOfItems(sentenceDTO.sgId());
-
         return sentenceRepository.save(sentence);
     }
 
@@ -52,24 +50,15 @@ public class SentenceService {
         sentence.setTranslate(sentenceDTO.translate());
         sentence.setDescription(sentenceDTO.description());
 
-        if (!sentence.getSgId().equals(sentenceDTO.sgId())) {
-            log.info("promjena grupe");
-            groupClient.decreaseNumOfItems(sentence.getSgId());
-            groupClient.increaseNumOfItems(sentenceDTO.sgId());
-
-            sentence.setSgId(sentenceDTO.sgId());
-        }
-
         return sentenceRepository.save(sentence);
     }
 
-    public void deleteSentence(Integer id, Integer sgId) {
+    public void deleteSentence(Integer id) {
         sentenceRepository.deleteById(id);
-        groupClient.decreaseNumOfItems(sgId);   // smanjenje broja recenica u grupi
     }
 
     @Transactional
-    public Long deleteAllWordsForDic(Integer dicId) {
+    public Long deleteAllSentencesForDic(Integer dicId) {
         return sentenceRepository.removeByDicId(dicId);
     }
 

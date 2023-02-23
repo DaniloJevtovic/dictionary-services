@@ -1,5 +1,6 @@
 package com.dictionary.word;
 
+import com.dictionary.amqp.RabbitMQMessageProducer;
 import com.dictionary.clients.group.GroupClient;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -15,6 +16,7 @@ public class WordService {
 
     private final WordRepository wordRepository;
     private final GroupClient groupClient;
+    private final RabbitMQMessageProducer rabbitMQMessageProducer;
 
     public Page<Word> getAllWords(Pageable pageable) {
         return wordRepository.findAll(pageable);
@@ -42,15 +44,16 @@ public class WordService {
                 .dicId(wordDTO.dicId())
                 .build();
 
-
-        //poziv ms za povecanja broja rjeci u grupi - obracanje clien-tu
-        groupClient.increaseNumOfItems(wordDTO.wgId());
+        wordRepository.saveAndFlush(word);
 
         // ideja recimo kad se doda nova rjec da postoji ms za pretragu (neki mongodb) i da se ta nova
         // rijec ubaci u tu bazu (kljuc vrijednost - rijec-prevod bez opisa i ostaloga)
         // negi globalni search
+        // pretraga za kompletan rjecnik - work-search-dic (id rjecnika)
+        // pretraga za grupu - work-search-dic (id grupe)
+        // rabbitmmq
 
-        return wordRepository.save(word);
+        return word;
     }
 
     public Word updateWord(Integer id, WordDTO wordDTO) {
@@ -60,25 +63,13 @@ public class WordService {
         word.setDescription(wordDTO.description());
         word.setType(wordDTO.type());
 
-        //ako je doslo do promjene grupe
-        if (!word.getWgId().equals(wordDTO.wgId())) {
-            log.info("promjena grupe");
-            groupClient.decreaseNumOfItems(word.getWgId()); // u originalno grupi smanji broj rjeci za 1
-            groupClient.increaseNumOfItems(wordDTO.wgId()); // u novoj grupi povecaj broj rjeci za 1
-        }
-
         word.setWgId(wordDTO.wgId());
 
         return wordRepository.save(word);
     }
 
-    //wgId se salje kao parameta da se zna u kojoj grupi se smanju broj rjeci
-    //da ne bi slao upit ka bazi da dobavis id grupe
-    public void deleteWord(Integer id, Integer wgId) {
+    public void deleteWord(Integer id) {
         wordRepository.deleteById(id);
-
-        //smanji broj rjeci u grupi za wgid
-        groupClient.decreaseNumOfItems(wgId);
     }
 
     @Transactional
@@ -88,6 +79,6 @@ public class WordService {
 
     @Transactional
     public Long deleteAllWordsForWg(Integer wgId) {
-        return  wordRepository.removeByWgId(wgId);
+        return wordRepository.removeByWgId(wgId);
     }
 }
