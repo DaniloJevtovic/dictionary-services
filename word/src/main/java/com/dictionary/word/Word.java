@@ -7,7 +7,6 @@ import lombok.NoArgsConstructor;
 
 import jakarta.persistence.*;
 
-
 @Data
 @Entity
 @Builder
@@ -16,13 +15,16 @@ import jakarta.persistence.*;
 public class Word {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     private String word;
     private String translate;
     private String description;
+    @Enumerated(EnumType.STRING)
     private WordType type;
+    @Column(name = "wg_id")
     private Integer wgId;
+    @Column(name = "dic_id")
     private Integer dicId;
 }

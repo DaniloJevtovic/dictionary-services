@@ -5,7 +5,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 
 @Entity
 @AllArgsConstructor
@@ -16,13 +16,14 @@ import javax.persistence.*;
 public class Group {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     private String name;
     private String description;
     private String color;
+    @Enumerated(EnumType.STRING)
     private GroupType type;
-    private int numOfItems;
+    @Column(name = "dic_id")
     private Integer dicId;
 }
