@@ -42,9 +42,9 @@ public class WordController {
         return wordService.updateWord(id, wordDTO);
     }
 
-    @DeleteMapping("/{id}/wg/{wgId}")
-    public void deleteWord(@PathVariable Integer id, @PathVariable Integer wgId) {
-        wordService.deleteWord(id, wgId);
+    @DeleteMapping("/{id}")
+    public void deleteWord(@PathVariable Integer id) {
+        wordService.deleteWord(id);
     }
 
     @DeleteMapping("/dic/{dicId}")

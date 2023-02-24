@@ -42,14 +42,14 @@ public class SentenceController {
         return sentenceService.updateSentence(id, sentenceDTO);
     }
 
-    @DeleteMapping("/{id}/sg/{sgId}")
-    public void deleteSentence(@PathVariable Integer id, @PathVariable Integer sgId) {
-        sentenceService.deleteSentence(id, sgId);
+    @DeleteMapping("/{id}")
+    public void deleteSentence(@PathVariable Integer id) {
+        sentenceService.deleteSentence(id);
     }
 
     @DeleteMapping("/dic/{dicId}")
     public Long deleteAllSentencesForDic(@PathVariable Integer dicId) {
-        return sentenceService.deleteAllWordsForDic(dicId);
+        return sentenceService.deleteAllSentencesForDic(dicId);
     }
 
     @DeleteMapping("/sg/{sgId}")
