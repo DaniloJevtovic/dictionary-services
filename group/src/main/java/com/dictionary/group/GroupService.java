@@ -1,5 +1,6 @@
 package com.dictionary.group;
 
+import com.dictionary.amqp.RabbitMQMessageProducer;
 import com.dictionary.clients.sentence.SentenceClient;
 import com.dictionary.clients.word.WordClient;
 import lombok.AllArgsConstructor;
@@ -13,8 +14,9 @@ import java.util.List;
 public class GroupService {
 
     private final GroupRepository groupRepository;
-    private final WordClient wordClient;
-    private final SentenceClient sentenceClient;
+    private final RabbitMQMessageProducer rabbitMQMessageProducer;
+//    private final WordClient wordClient;
+//    private final SentenceClient sentenceClient;
 
     public List<Group> getAllGroups() {
         return groupRepository.findAll();
@@ -52,9 +54,11 @@ public class GroupService {
         // kad se brise grupa trebalo bi obrisati sve rjeci ili recenice iz te grupe
         // moras provjeriti koji je tip grupe pa na osnovu toga brisati ili rjeci ili recenice za tu grupu
         if (type.equals("WGROUP"))
-            wordClient.deleteAllWordsForWg(id);
+            rabbitMQMessageProducer.publish(id, "delete.wg", "del-wg.routing-key");
+            //wordClient.deleteAllWordsForWg(id);
         else
-            sentenceClient.deleteAllSentencesForSg(id);
+            rabbitMQMessageProducer.publish(id, "delete.sg", "del-sg.routing-key");
+        //sentenceClient.deleteAllSentencesForSg(id);
 
         groupRepository.deleteById(id);
     }
