@@ -37,16 +37,6 @@ public class GroupController {
         return groupService.updateGroup(id, groupDTO);
     }
 
-    @PutMapping("/{id}/increase")
-    public void increaseNumOfItems(@PathVariable Integer id) {
-        groupService.increaseNumOfItems(id);
-    }
-
-    @PutMapping("/{id}/decrease")
-    public void decreaseNumOfItems(@PathVariable Integer id) {
-        groupService.decreaseNumOfItems(id);
-    }
-
     @DeleteMapping("/{id}/type/{type}")
     public void deleteGroup(@PathVariable Integer id, @PathVariable String type) {
         groupService.deleteGroup(id, type);

@@ -25,7 +25,7 @@ public class GroupService {
     }
 
     public List<Group> getGroupsForDicByType(Integer dicId, String type) {
-        return groupRepository.findByDicIdAndType(dicId, type);
+        return groupRepository.findByDicIdAndType(dicId, GroupType.valueOf(type));
     }
 
     public Group saveGroup(GroupDTO groupDTO) {
@@ -34,7 +34,6 @@ public class GroupService {
                 .description(groupDTO.description())
                 .color(groupDTO.color())
                 .type(groupDTO.type())
-                .numOfItems(0)
                 .dicId(groupDTO.dicId())
                 .build();
 
@@ -47,18 +46,6 @@ public class GroupService {
         group.setDescription(groupDTO.description());
         group.setColor(groupDTO.color());
         return groupRepository.save(group);
-    }
-
-    public void increaseNumOfItems(Integer id) {
-        Group group = getGroupById(id);
-        group.setNumOfItems(group.getNumOfItems() + 1);
-        groupRepository.save(group);
-    }
-
-    public void decreaseNumOfItems(Integer id) {
-        Group group = getGroupById(id);
-        group.setNumOfItems(group.getNumOfItems() - 1);
-        groupRepository.save(group);
     }
 
     public void deleteGroup(Integer id, String type) {
