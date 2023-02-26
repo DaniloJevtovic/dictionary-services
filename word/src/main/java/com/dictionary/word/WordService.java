@@ -1,7 +1,5 @@
 package com.dictionary.word;
 
-import com.dictionary.amqp.RabbitMQMessageProducer;
-import com.dictionary.clients.group.GroupClient;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;
@@ -15,8 +13,6 @@ import org.springframework.transaction.annotation.Transactional;
 public class WordService {
 
     private final WordRepository wordRepository;
-    private final GroupClient groupClient;
-    private final RabbitMQMessageProducer rabbitMQMessageProducer;
 
     public Page<Word> getAllWords(Pageable pageable) {
         return wordRepository.findAll(pageable);
@@ -46,13 +42,6 @@ public class WordService {
 
         wordRepository.saveAndFlush(word);
 
-        // ideja recimo kad se doda nova rjec da postoji ms za pretragu (neki mongodb) i da se ta nova
-        // rijec ubaci u tu bazu (kljuc vrijednost - rijec-prevod bez opisa i ostaloga)
-        // negi globalni search
-        // pretraga za kompletan rjecnik - work-search-dic (id rjecnika)
-        // pretraga za grupu - work-search-dic (id grupe)
-        // rabbitmmq
-
         return word;
     }
 
@@ -66,6 +55,18 @@ public class WordService {
         word.setWgId(wordDTO.wgId());
 
         return wordRepository.save(word);
+    }
+
+    public Page<Word> searchInDic(Integer dicId, String value, Pageable pageable) {
+        return wordRepository.findByDicIdAndWordContainsOrDicIdAndTranslateContains(
+                dicId, value, dicId, value, pageable
+        );
+    }
+
+    public Page<Word> searchInGroup(Integer wgId, String value, Pageable pageable) {
+        return wordRepository.findByWgIdAndWordContainsOrWgIdAndTranslateContains(
+                wgId, value, wgId, value, pageable
+        );
     }
 
     public void deleteWord(Integer id) {
