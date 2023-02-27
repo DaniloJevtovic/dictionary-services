@@ -55,10 +55,10 @@ public class GroupService {
         // moras provjeriti koji je tip grupe pa na osnovu toga brisati ili rjeci ili recenice za tu grupu
         if (type.equals("WGROUP"))
             rabbitMQMessageProducer.publish(id, "delete.wg", "del-wg.routing-key");
-            //wordClient.deleteAllWordsForWg(id);
+            // wordClient.deleteAllWordsForWg(id);
         else
             rabbitMQMessageProducer.publish(id, "delete.sg", "del-sg.routing-key");
-        //sentenceClient.deleteAllSentencesForSg(id);
+            // sentenceClient.deleteAllSentencesForSg(id);
 
         groupRepository.deleteById(id);
     }

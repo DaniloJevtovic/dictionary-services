@@ -14,12 +14,6 @@ import java.util.List;
 public class DictionaryService {
 
     private final DictionaryRepository dictionaryRepository;
-//    private final ModelMapper modelMapper;
-
-//    private final GroupClient groupClient;
-//    private final WordClient wordClient;
-//    private final SentenceClient sentenceClient;
-//    private final GrammarClient grammarClient;
 
     private final RabbitMQMessageProducer rabbitMQMessageProducer;
 
@@ -36,7 +30,6 @@ public class DictionaryService {
     }
 
     public Dictionary saveDictionary(DictionaryDTO dictionaryDTO) {
-//        Dictionary dictionary = this.modelMapper.map(dictionaryDTO, Dictionary.class);
 
         Dictionary dictionary = Dictionary.builder()
                 .name(dictionaryDTO.name())
@@ -57,22 +50,6 @@ public class DictionaryService {
     }
 
     public void deleteDictionary(Integer id) {
-        //brisanje svih grupa -> brisanje svih rjeci, recenica i gramatike
-        //moras pozivati brisanje za rjecnik jer moguce da rjec/recenica ne bude rasporedjena u grupi
-
-        // open feign
-//        Long brGrupa = groupClient.deleteAllGroupsForDic(id);
-//        log.info("Obrisao ukupno {} grupa", brGrupa);
-//
-//        Long brRjeci = wordClient.deleteAllWordsForDic(id);
-//        log.info("Obrisano ukupno {} rjeci", brRjeci);
-//
-//        Long brRecenica = sentenceClient.deleteAllSentencesForDic(id);
-//        log.info("Obrisano ukupno {} recenica", brRecenica);
-//
-//        Long brGramatika = grammarClient.deleteAllGrammarsForDic(id);
-//        log.info("Obrisano ukupno {} gramatika", brGramatika);
-
         // brisanje svega iz rjecnika - rjeci, recenica i gramatike
         rabbitMQMessageProducer.publish(id, "delete.dic.all", "del-dic.routing-key");
 

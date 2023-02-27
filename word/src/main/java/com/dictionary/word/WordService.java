@@ -51,7 +51,6 @@ public class WordService {
         word.setTranslate(wordDTO.translate());
         word.setDescription(wordDTO.description());
         word.setType(wordDTO.type());
-
         word.setWgId(wordDTO.wgId());
 
         return wordRepository.save(word);

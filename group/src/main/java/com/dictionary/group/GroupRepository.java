@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface GroupRepository extends JpaRepository<Group, Integer> {
 
-    List<Group> findByDicIdAndType(Integer dicId, String type);
+    List<Group> findByDicIdAndType(Integer dicId, GroupType type);
 
     Long removeByDicId(Integer dicId);
 }
