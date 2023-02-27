@@ -34,7 +34,12 @@ public class GrammarController {
 
     @PutMapping("/{id}")
     public Grammar updateGrammar(@PathVariable Integer id, @RequestBody GrammarDTO grammarDTO) {
-        return  grammarService.updateGrammar(id, grammarDTO);
+        return grammarService.updateGrammar(id, grammarDTO);
+    }
+
+    @GetMapping("/dic/{dicId}/search/{title}")
+    public Page<Grammar> searchGrammar(@PathVariable Integer dicId, @PathVariable String title, Pageable pageable) {
+        return grammarService.searchByTitle(dicId, title, pageable);
     }
 
     @DeleteMapping("/{id}")

@@ -8,5 +8,7 @@ public interface GrammarRepository extends JpaRepository<Grammar, Integer> {
 
     Page<Grammar> findByDicId(Integer dicId, Pageable pageable);
 
+    Page<Grammar> findByDicIdAndTitleContains(Integer dicId, String title, Pageable pageable);
+
     Long removeByDicId(Integer dicID);
 }

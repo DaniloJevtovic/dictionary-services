@@ -42,6 +42,10 @@ public class GrammarService {
         return grammarRepository.save(grammar);
     }
 
+    public Page<Grammar> searchByTitle(Integer dicId, String title, Pageable pageable) {
+        return grammarRepository.findByDicIdAndTitleContains(dicId, title, pageable);
+    }
+
     public void deleteGrammar(Integer id) {
         grammarRepository.deleteById(id);
     }
