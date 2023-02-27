@@ -30,7 +30,7 @@ rabbitmq:
     delete-dic-all: delete.dic.all
   queues:
     sg-queue: delete-sg.queue
-    dic-queue-all: delete-dic-all.queue
+    dic-sentence-queue: delete-dic-sentence.queue
   routing-keys:
     sg-key: del-sg.routing-key
     dic-key-all: del-dic.routing-key

@@ -31,7 +31,7 @@ rabbitmq:
     delete-dic-all: delete.dic.all
   queues:
     wg-queue: delete-wg.queue
-    dic-queue-all: delete-dic-all.queue
+    dic-word-queue: delete-dic-word.queue
   routing-keys:
     wg-key: del-wg.routing-key
     dic-key-all: del-dic.routing-key

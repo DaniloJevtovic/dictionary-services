@@ -16,7 +16,7 @@ public class DeleteConsumer {
         wordService.deleteAllWordsForWg(wgId);
     }
 
-    @RabbitListener(queues = "${rabbitmq.queues.dic-queue-all}")
+    @RabbitListener(queues = "${rabbitmq.queues.dic-word-queue}")
     public void deleteWordsForDic(Integer dicId) {
         wordService.deleteAllWordsForDic(dicId);
     }

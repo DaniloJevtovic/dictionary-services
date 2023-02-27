@@ -13,7 +13,7 @@ public class GroupConsumer {
 
     private final GroupService groupService;
 
-    @RabbitListener(queues = "${rabbitmq.queues.dic-queue-all}")
+    @RabbitListener(queues = "${rabbitmq.queues.dic-group-queue}")
     public void deleteGroupsForDic(Integer dicId) {
         groupService.deleteAllGroupsForDic(dicId);
     }

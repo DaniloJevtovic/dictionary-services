@@ -26,11 +26,8 @@ eureka:
 
 rabbitmq:
   exchanges:
-    group-ex: group.exchange
     delete-dic-all: delete.dic.all
   queues:
-    gr-queue: group.queue
-    dic-queue-all: delete-dic-all.queue
+    dic-group-queue: delete-dic-group.queue
   routing-keys:
-    qroup-key: group.routing-key
     dic-key-all: del-dic.routing-key

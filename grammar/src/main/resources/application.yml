@@ -28,6 +28,6 @@ rabbitmq:
   exchanges:
     delete-dic-all: delete.dic.all
   queues:
-    dic-queue-all: delete-dic-all.queue
+    dic-grammar-queue: delete-dic-grammar.queue
   routing-keys:
     dic-key-all: del-dic.routing-key

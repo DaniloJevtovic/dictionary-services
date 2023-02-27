@@ -11,7 +11,7 @@ public class DeleteConsumer {
 
     private final GrammarService grammarService;
 
-    @RabbitListener(queues = "${rabbitmq.queues.dic-queue-all}")
+    @RabbitListener(queues = "${rabbitmq.queues.dic-grammar-queue}")
     public void deleteWordsForDic(Integer dicId) {
         grammarService.deleteAllGrammarsForDic(dicId);
     }

@@ -14,7 +14,7 @@ public class DeleteDicConfig {
     @Value("${rabbitmq.exchanges.delete-dic-all}")
     private String exchange;
 
-    @Value("${rabbitmq.queues.dic-queue-all}")
+    @Value("${rabbitmq.queues.dic-sentence-queue}")
     private String queue;
 
     @Value("${rabbitmq.routing-keys.dic-key-all}")
