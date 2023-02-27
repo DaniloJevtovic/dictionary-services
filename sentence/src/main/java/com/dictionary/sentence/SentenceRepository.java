@@ -10,6 +10,12 @@ public interface SentenceRepository extends JpaRepository<Sentence, Integer> {
 
     Page<Sentence> findBySgId(Integer sgId, Pageable pageable);
 
+    Page<Sentence> findByDicIdAndSentenceContainsOrDicIdAndTranslateContains(
+            Integer dicId, String sentence, Integer dicId1, String translate, Pageable pageable);
+
+    Page<Sentence> findBySgIdAndSentenceContainsOrSgIdAndTranslateContains(
+            Integer sgId, String sentence, Integer sgId1, String translate, Pageable pageable);
+
     Long removeByDicId(Integer dicId);
 
     Long removeBySgId(Integer sgId);

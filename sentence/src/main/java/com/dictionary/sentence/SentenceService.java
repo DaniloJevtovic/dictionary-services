@@ -53,6 +53,14 @@ public class SentenceService {
         return sentenceRepository.save(sentence);
     }
 
+    public Page<Sentence> searchdInDic(Integer id, String value, Pageable pageable) {
+        return sentenceRepository.findByDicIdAndSentenceContainsOrDicIdAndTranslateContains(id, value, id, value, pageable);
+    }
+
+    public Page<Sentence> searchInGroup(Integer id, String value, Pageable pageable) {
+        return sentenceRepository.findBySgIdAndSentenceContainsOrSgIdAndTranslateContains(id, value, id, value, pageable);
+    }
+
     public void deleteSentence(Integer id) {
         sentenceRepository.deleteById(id);
     }
