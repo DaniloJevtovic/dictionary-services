@@ -1,0 +1,2 @@
+insert into user(name, email, password, role) values ('lemur', 'lemur@gmail.com','$2a$12$YKDa5TbMh3j8Bz7eqVQiEuDqiq2lMB.liVqP2crY1ksGj18C2JzfS', 'USER')
+insert into user(name, email, password, role) values ('danilo', 'danilo@gmail.com','$2a$12$YKDa5TbMh3j8Bz7eqVQiEuDqiq2lMB.liVqP2crY1ksGj18C2JzfS', 'USER')
