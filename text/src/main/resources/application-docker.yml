@@ -9,6 +9,10 @@ spring:
       port: 27017
       host: mongo
       database: text
+#      user: root
+#      password: example
+  rabbitmq:
+    addresses: rabbitmq:5672
 
 eureka:
   client:

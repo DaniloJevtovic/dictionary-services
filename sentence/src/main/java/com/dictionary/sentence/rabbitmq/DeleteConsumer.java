@@ -1,6 +1,5 @@
 package com.dictionary.sentence.rabbitmq;
 
-
 import com.dictionary.sentence.SentenceService;
 import lombok.AllArgsConstructor;
 

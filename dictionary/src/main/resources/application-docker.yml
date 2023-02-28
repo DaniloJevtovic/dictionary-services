@@ -5,9 +5,9 @@ spring:
   application:
     name: dictionary
   datasource:
-    url: jdbc:postgresql://localhost:5432/dictionary
+    url: jdbc:postgresql://postgres:5432/dictionary
     username: lemur
-    password: toor
+    password: password
   jpa:
     hibernate:
       ddl-auto: create-drop
@@ -17,11 +17,11 @@ spring:
         format_sql: true
     show-sql: true
   rabbitmq:
-    addresses: localhost:5672
+    addresses: rabbitmq:5672
 
 eureka:
   client:
     service-url:
-      defaultZone: http://localhost:8761/eureka
+      defaultZone: http://eureka-server:8761/eureka
     fetch-registry: true
     register-with-eureka: true

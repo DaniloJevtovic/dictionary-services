@@ -9,6 +9,8 @@ spring:
       port: 27017
       host: localhost
       database: text
+  rabbitmq:
+    addresses: localhost:5672
 
 eureka:
   client:

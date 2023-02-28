@@ -1,13 +1,13 @@
 server:
-  port: 8082
+  port: 8084
 
 spring:
   application:
-    name: group
+    name: sentence
   datasource:
-    url: jdbc:postgresql://localhost:5432/wsgroup
+    url: jdbc:postgresql://postgres:5432/sentence
     username: lemur
-    password: toor
+    password: password
   jpa:
     hibernate:
       ddl-auto: create-drop
@@ -17,19 +17,22 @@ spring:
         format_sql: true
     show-sql: true
   rabbitmq:
-    addresses: localhost:5672
+    addresses: rabbitmq:5672
 
 eureka:
   client:
     service-url:
-      defaultZone: http://localhost:8761/eureka
+      defaultZone: http://eureka-server:8761/eureka
     fetch-registry: true
     register-with-eureka: true
 
 rabbitmq:
   exchanges:
+    delete-sg: delete.sg
     delete-dic-all: delete.dic.all
   queues:
-    dic-group-queue: delete-dic-group.queue
+    sg-queue: delete-sg.queue
+    dic-sentence-queue: delete-dic-sentence.queue
   routing-keys:
+    sg-key: del-sg.routing-key
     dic-key-all: del-dic.routing-key
