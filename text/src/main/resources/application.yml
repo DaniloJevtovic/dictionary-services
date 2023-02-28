@@ -1,0 +1,26 @@
+server:
+  port: 8086
+
+spring:
+  application:
+    name: text
+  data:
+    mongodb:
+      port: 27017
+      host: localhost
+      database: text
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+    fetch-registry: true
+    register-with-eureka: true
+
+rabbitmq:
+  exchanges:
+    delete-dic-all: delete.dic.all
+  queues:
+    dic-text-queue: delete-dic-text.queue
+  routing-keys:
+    dic-key-all: del-dic.routing-key
