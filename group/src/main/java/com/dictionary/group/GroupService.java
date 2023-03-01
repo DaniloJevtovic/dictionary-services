@@ -29,6 +29,7 @@ public class GroupService {
     public List<Group> getGroupsForDicByType(Integer dicId, String type) {
         return groupRepository.findByDicIdAndType(dicId, GroupType.valueOf(type));
     }
+    // mogu i dvije metode jedna za dobavljanje grupe rjeci a druga grupe recenica
 
     public Group saveGroup(GroupDTO groupDTO) {
         Group group = Group.builder()

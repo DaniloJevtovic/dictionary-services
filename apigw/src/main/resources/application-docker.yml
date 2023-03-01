@@ -1,0 +1,55 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: api-gateway
+#  cloud:
+#    gateway:
+#      routes:
+#        - id: auth
+#          uri: lb://AUTH
+#          predicates:
+#            - Path=/api/auth/**
+#          filters:
+#            - AuthFilter
+#
+#        - id: dictionary
+#          uri: lb://DICTIONARY
+#          predicates:
+#            - Path=/api/dictionaries/**
+#          filters:
+#            - AuthFilter
+#
+#        - id: group
+#          uri: lb://GROUP
+#          predicates:
+#            - Path=/api/groups/**
+#
+#        - id: word
+#          uri: lb://WORD
+#          predicates:
+#            - Path=/api/words/**
+#
+#        - id: sentence
+#          uri: lb://SENTENCE
+#          predicates:
+#            - Path=/api/sentences/**
+#
+#        - id: grammars
+#          uri: lb://GRAMMAR
+#          predicates:
+#            - Path=/api/grammars/**
+#
+#        - id: text
+#          uri: lb://TEXT
+#          predicates:
+#            - Path=/api/texts/**
+
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka-server:8761/eureka
+    fetch-registry: true
+    register-with-eureka: true
