@@ -33,6 +33,11 @@ public class TextController {
         return textService.save(text);
     }
 
+    @PatchMapping("/{id}/favorite/{fav}")
+    public void updateFavorite(@PathVariable String id, @PathVariable Boolean fav) {
+        textService.updateFav(id, fav);
+    }
+
     @GetMapping("/dic/{dicId}/search/{title}")
     public Page<Text> searchByTitle(@PathVariable Integer dicId, @PathVariable String title,
                                     @PageableDefault(size = 5) Pageable pageable) {

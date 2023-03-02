@@ -35,6 +35,7 @@ public class WordService {
                 .word(wordDTO.word())
                 .translate(wordDTO.translate())
                 .description(wordDTO.description())
+                .favorite(wordDTO.favorite())
                 .type(wordDTO.type())
                 .wgId(wordDTO.wgId())
                 .dicId(wordDTO.dicId())
@@ -50,10 +51,17 @@ public class WordService {
         word.setWord(wordDTO.word());
         word.setTranslate(wordDTO.translate());
         word.setDescription(wordDTO.description());
+        word.setFavorite(wordDTO.favorite());
         word.setType(wordDTO.type());
         word.setWgId(wordDTO.wgId());
 
         return wordRepository.save(word);
+    }
+
+    public void updateFavorite(Integer wordId, Boolean fav) {
+        Word word = getWordById(wordId);
+        word.setFavorite(fav);
+        wordRepository.save(word);
     }
 
     public Page<Word> searchInDic(Integer dicId, String value, Pageable pageable) {

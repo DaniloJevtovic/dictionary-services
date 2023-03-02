@@ -43,6 +43,11 @@ public class WordController {
         return wordService.updateWord(id, wordDTO);
     }
 
+    @PatchMapping("/{id}/favorite/{fav}")
+    public void updateFavorite(@PathVariable Integer id, @PathVariable Boolean fav) {
+        wordService.updateFavorite(id, fav);
+    }
+
     @GetMapping("/dic/{dicId}/search/{value}")
     public Page<Word> searchInDic(@PathVariable Integer dicId, @PathVariable String value, Pageable pageable) {
         return wordService.searchInDic(dicId, value, pageable);

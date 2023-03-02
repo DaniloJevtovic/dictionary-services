@@ -37,6 +37,7 @@ public class SentenceService {
                 .sentence(sentenceDTO.sentence())
                 .translate(sentenceDTO.translate())
                 .description(sentenceDTO.description())
+                .favorite(sentenceDTO.favorite())
                 .sgId(sentenceDTO.sgId())
                 .dicId(sentenceDTO.dicId())
                 .build();
@@ -49,8 +50,15 @@ public class SentenceService {
         sentence.setSentence(sentenceDTO.sentence());
         sentence.setTranslate(sentenceDTO.translate());
         sentence.setDescription(sentenceDTO.description());
+        sentence.setFavorite(sentenceDTO.favorite());
 
         return sentenceRepository.save(sentence);
+    }
+
+    public void updateFavorite(Integer sentenceeId, Boolean fav) {
+        Sentence sentence = getSentenceById(sentenceeId);
+        sentence.setFavorite(fav);
+        sentenceRepository.save(sentence);
     }
 
     public Page<Sentence> searchdInDic(Integer id, String value, Pageable pageable) {

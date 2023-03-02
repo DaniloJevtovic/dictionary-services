@@ -20,6 +20,7 @@ public class Sentence {
     private String sentence;
     private String translate;
     private String description;
+    private Boolean favorite;
     @Column(name = "sg_id")
     private Integer sgId;
     @Column(name = "dic_id")

@@ -23,6 +23,7 @@ public class Word {
     private String description;
     @Enumerated(EnumType.STRING)
     private WordType type;
+    private Boolean favorite;
     @Column(name = "wg_id")
     private Integer wgId;
     @Column(name = "dic_id")

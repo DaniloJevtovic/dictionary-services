@@ -13,6 +13,7 @@ public class Text {
     private String title;
     private String text;
     private String translate;
+    private Boolean favorite;
     private Integer dicId;
 
 }

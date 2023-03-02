@@ -33,6 +33,12 @@ public class TextService {
         return textRepository.save(text);
     }
 
+    public void updateFav(String textId, Boolean fav) {
+        Text text = findById(textId);
+        text.setFavorite(fav);
+        textRepository.save(text);
+    }
+
     public void deleteText(String textId) {
         textRepository.deleteById(textId);
     }

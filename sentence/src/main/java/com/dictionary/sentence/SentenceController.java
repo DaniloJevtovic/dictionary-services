@@ -43,6 +43,11 @@ public class SentenceController {
         return sentenceService.updateSentence(id, sentenceDTO);
     }
 
+    @PatchMapping("/{id}/favorite/{fav}")
+    public void updateFavorite(@PathVariable Integer id, @PathVariable Boolean fav) {
+        sentenceService.updateFavorite(id, fav);
+    }
+
     @GetMapping("/dic/{dicId}/search/{value}")
     public Page<Sentence> searchInDic(@PathVariable Integer dicId, @PathVariable String value, Pageable pageable) {
         return sentenceService.searchdInDic(dicId, value, pageable);
