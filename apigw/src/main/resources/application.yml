@@ -7,8 +7,8 @@ spring:
 #  cloud:
 #    gateway:
 #      routes:
-#        - id: auth
-#          uri: lb://AUTH
+#        - id: user
+#          uri: lb://USER
 #          predicates:
 #            - Path=/api/auth/**
 #          filters:

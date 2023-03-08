@@ -4,7 +4,7 @@ server:
 
 spring:
   application:
-    name: auth
+    name: user
   datasource:
     url: jdbc:mysql://mysql:3306/auth?allowPublicKeyRetrieval=true&useSSL=false&createDatabaseIfNotExist=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
     username: root

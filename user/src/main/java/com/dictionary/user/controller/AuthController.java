@@ -1,11 +1,11 @@
-package com.dictionary.auth.controller;
+package com.dictionary.user.controller;
 
-import com.dictionary.auth.dto.LoginDTO;
-import com.dictionary.auth.dto.RegisterDTO;
-import com.dictionary.auth.dto.TokenDTO;
-import com.dictionary.auth.util.JwtUtil;
-import com.dictionary.auth.user.User;
-import com.dictionary.auth.user.UserService;
+import com.dictionary.user.dto.LoginDTO;
+import com.dictionary.user.dto.RegisterDTO;
+import com.dictionary.user.dto.TokenDTO;
+import com.dictionary.user.util.JwtUtil;
+import com.dictionary.user.user.User;
+import com.dictionary.user.user.UserService;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;

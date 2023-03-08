@@ -15,7 +15,7 @@ public class ApiGatewayConfig {
     @Bean
     public RouteLocator routes(RouteLocatorBuilder builder) {
         return builder.routes()
-                .route("auth", r -> r.path("/api/auth/**").filters(f -> f.filter(authFilter)).uri("lb://AUTH"))
+                .route("user", r -> r.path("/api/auth/**").filters(f -> f.filter(authFilter)).uri("lb://USER"))
                 .route("dictionary", r -> r.path("/api/dictionaries/**").filters(f -> f.filter(authFilter)).uri("lb://DICTIONARY"))
                 .route("group", r -> r.path("/api/groups/**").filters(f -> f.filter(authFilter)).uri("lb://GROUP"))
                 .route("word", r -> r.path("/api/words/**").filters(f -> f.filter(authFilter)).uri("lb://WORD"))

@@ -1,4 +1,4 @@
-package com.dictionary.auth.dto;
+package com.dictionary.user.dto;
 
 public record LoginDTO(
         String email,

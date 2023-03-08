@@ -1,7 +1,7 @@
-package com.dictionary.auth.controller;
+package com.dictionary.user.controller;
 
-import com.dictionary.auth.user.User;
-import com.dictionary.auth.user.UserService;
+import com.dictionary.user.user.User;
+import com.dictionary.user.user.UserService;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;

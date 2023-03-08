@@ -1,6 +1,6 @@
-package com.dictionary.auth.util;
+package com.dictionary.user.util;
 
-import com.dictionary.auth.user.UserService;
+import com.dictionary.user.user.UserService;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;

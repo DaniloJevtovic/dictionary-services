@@ -1,7 +1,7 @@
-package com.dictionary.auth.user;
+package com.dictionary.user.user;
 
-import com.dictionary.auth.dto.LoginDTO;
-import com.dictionary.auth.dto.RegisterDTO;
+import com.dictionary.user.dto.LoginDTO;
+import com.dictionary.user.dto.RegisterDTO;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.crypto.password.PasswordEncoder;

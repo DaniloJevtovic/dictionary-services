@@ -12,11 +12,11 @@
         <module name="dictionary" />
         <module name="grammar" />
         <module name="clients" />
-        <module name="auth" />
         <module name="amqp" />
         <module name="text" />
         <module name="eureka-server" />
         <module name="word" />
+        <module name="user" />
         <module name="group" />
       </profile>
     </annotationProcessing>

@@ -43,7 +43,7 @@ public class AuthFilter implements GatewayFilter {
 
             try {
                 jwtUtil.validateToken(token);
-                // poziv ka auth servisu za validaciju tokena
+                // poziv ka user servisu za validaciju tokena
             } catch (Exception e) {
                 e.printStackTrace();
 

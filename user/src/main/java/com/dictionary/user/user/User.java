@@ -1,4 +1,4 @@
-package com.dictionary.auth.user;
+package com.dictionary.user.user;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;

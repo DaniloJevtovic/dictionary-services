@@ -108,9 +108,9 @@ services:
     depends_on:
       - eureka-server
 
-  auth:
-    container_name: auth
-    image: auth:latest
+  user:
+    container_name: user
+    image: user:latest
     ports:
       - "8888:8888"
     environment:
@@ -228,4 +228,4 @@ volumes:
   my-db:
   mongodb_data_container:
 
-#docker rmi eureka-server:latest sentence:latest apigw:latest grammar:latest dictionary:latest auth:latest word:latest group:latest text:latest
+#docker rmi eureka-server:latest sentence:latest apigw:latest grammar:latest dictionary:latest user:latest word:latest group:latest text:latest

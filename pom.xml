@@ -19,7 +19,7 @@
         <module>grammar</module>
         <module>clients</module>
         <module>amqp</module>
-        <module>auth</module>
+        <module>user</module>
         <module>text</module>
     </modules>
 

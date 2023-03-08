@@ -1,4 +1,4 @@
-package com.dictionary.auth.user;
+package com.dictionary.user.user;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
