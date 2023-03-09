@@ -1,0 +1,2 @@
+insert into sentence(sentence, translate, description, favorite, sg_id, dic_id) values ('Hello, I am Lemur', 'Zdravo, ja sam Lemur', 'ime', true, 3, 1);
+insert into sentence(sentence, translate, description, favorite, sg_id, dic_id) values ('Hello, my name is Lemur', 'Zdravo, moje ime je Lemur', 'ime', false, 3, 1);
